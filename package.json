@@ -62,6 +62,7 @@
     "build:lib": "ng-packagr -p ng-package.json",
     "build": "ng build ngx-charts-demo",
     "build:prod": "ng build ngx-charts-demo --configuration production",
+    "build:gh-pages": "ng build ngx-charts-demo --configuration production --base-href /ngx-charts/",
     "start": "ng serve ngx-charts-demo",
     "publish:lib": "npm publish dist/ngx-charts --access public"
   }

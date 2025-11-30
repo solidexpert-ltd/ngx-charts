@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build demo app
-        run: ng build ngx-charts-demo --configuration production --base-href /ngx-charts/
+        run: npm run build:gh-pages
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
