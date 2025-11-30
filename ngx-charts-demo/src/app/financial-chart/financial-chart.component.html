@@ -1,0 +1,12 @@
+<app-chart-host chartType="financial">
+  <canvas
+    baseChart
+    #main
+    [data]="financialChartData"
+    [type]="financialChartType"
+    [options]="financialChartOptions"
+  ></canvas>
+  <button mat-button (click)="update()">Update</button>
+  <button mat-button (click)="randomize()">Randomize</button>
+</app-chart-host>
+

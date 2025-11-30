@@ -1,0 +1,12 @@
+<app-chart-host chartType="radar">
+  <canvas
+    baseChart
+    #main
+    [data]="radarChartData"
+    [type]="radarChartType"
+    [options]="radarChartOptions"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+</app-chart-host>
+

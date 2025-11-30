@@ -1,0 +1,17 @@
+<app-chart-host chartType="pie">
+  <canvas
+    baseChart
+    #main
+    [data]="pieChartData"
+    [type]="pieChartType"
+    [options]="pieChartOptions"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+  <button mat-button (click)="changeLabels()">Change Labels</button>
+  <button mat-button (click)="addSlice()">Add Slice</button>
+  <button mat-button (click)="removeSlice()">Remove Slice</button>
+  <button mat-button (click)="changeLegendPosition()">Change Legend Position</button>
+  <button mat-button (click)="toggleLegend()">Toggle Legend</button>
+</app-chart-host>
+

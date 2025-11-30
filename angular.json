@@ -1,0 +1,76 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-charts-demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "ngx-charts-demo",
+      "sourceRoot": "ngx-charts-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ngx-charts-demo",
+            "index": "ngx-charts-demo/src/index.html",
+            "browser": "ngx-charts-demo/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "ngx-charts-demo/tsconfig.app.json",
+            "assets": [
+              "ngx-charts-demo/src/favicon.ico",
+              "ngx-charts-demo/src/assets"
+            ],
+            "styles": ["ngx-charts-demo/src/styles.scss"],
+            "scripts": [],
+            "loader": {
+              ".html": "text",
+              ".ts": "text"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "2mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ngx-charts-demo:build:production"
+            },
+            "development": {
+              "buildTarget": "ngx-charts-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "b8a6d56e-9c01-4f10-9627-b7759ed317ef"
+  }
+}
+

@@ -1,0 +1,12 @@
+<app-chart-host chartType="polarArea">
+  <canvas
+    baseChart
+    #main
+    [data]="polarAreaChartData"
+    [type]="polarAreaChartType"
+    [legend]="polarAreaLegend"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+</app-chart-host>
+

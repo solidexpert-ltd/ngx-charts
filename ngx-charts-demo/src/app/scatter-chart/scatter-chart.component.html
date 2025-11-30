@@ -1,0 +1,12 @@
+<app-chart-host chartType="scatter">
+  <canvas
+    baseChart
+    #main
+    [data]="scatterChartData"
+    [type]="scatterChartType"
+    [options]="scatterChartOptions"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+</app-chart-host>
+

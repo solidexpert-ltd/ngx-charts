@@ -1,0 +1,65 @@
+<header class="app-header">
+  <div class="header-container">
+    <div class="logo-container" routerLink="/">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3L21 3L21 21L3 21L3 3Z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M3 12L21 12" stroke="currentColor" stroke-width="2"/>
+          <path d="M9 3L9 21" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="logo-text">ngx-charts</span>
+    </div>
+
+    <nav class="main-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <div class="nav-dropdown">
+        <a class="nav-link dropdown-toggle">Charts</a>
+        <div class="dropdown-menu">
+          <a routerLink="/line" routerLinkActive="active" class="dropdown-item">Line Chart</a>
+          <a routerLink="/bar" routerLinkActive="active" class="dropdown-item">Bar Chart</a>
+          <a routerLink="/pie" routerLinkActive="active" class="dropdown-item">Pie Chart</a>
+          <a routerLink="/doughnut" routerLinkActive="active" class="dropdown-item">Doughnut Chart</a>
+          <a routerLink="/radar" routerLinkActive="active" class="dropdown-item">Radar Chart</a>
+          <a routerLink="/polar-area" routerLinkActive="active" class="dropdown-item">Polar Area</a>
+          <a routerLink="/bubble" routerLinkActive="active" class="dropdown-item">Bubble Chart</a>
+          <a routerLink="/scatter" routerLinkActive="active" class="dropdown-item">Scatter Chart</a>
+          <a routerLink="/dynamic" routerLinkActive="active" class="dropdown-item">Dynamic Chart</a>
+          <a routerLink="/financial" routerLinkActive="active" class="dropdown-item">Financial Chart</a>
+        </div>
+      </div>
+      <a href="https://github.com/solidexpert-ltd/ngx-charts" target="_blank" class="nav-link">Docs</a>
+      <div class="header-actions">
+        <mat-slide-toggle
+          color="primary"
+          [(ngModel)]="isDarkTheme"
+          (ngModelChange)="themeChanged()"
+          class="theme-toggle"
+        >
+          <span class="toggle-label">{{ isDarkTheme ? 'Dark' : 'Light' }}</span>
+        </mat-slide-toggle>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer">
+  <div class="footer-container">
+    <p class="footer-text">
+      <a href="https://github.com/solidexpert-ltd/ngx-charts" target="_blank" class="footer-link">
+        <mat-icon>code</mat-icon>
+        GitHub
+      </a>
+      <span class="separator">•</span>
+      <a href="https://github.com/solidexpert-ltd/ngx-charts/graphs/contributors" target="_blank" class="footer-link">
+        Contributors
+      </a>
+      <span class="separator">•</span>
+      <span>Built with Angular & Chart.js</span>
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,14 @@
+<app-chart-host chartType="bubble">
+  <canvas
+    baseChart
+    #main
+    [data]="bubbleChartData"
+    [type]="bubbleChartType"
+    [options]="bubbleChartOptions"
+    [legend]="bubbleChartLegend"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+  <button mat-button (click)="randomize()">Randomize</button>
+</app-chart-host>
+

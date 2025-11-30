@@ -1,0 +1,17 @@
+<app-chart-host chartType="line">
+  <canvas
+    baseChart
+    #main
+    [data]="lineChartData"
+    [type]="lineChartType"
+    [options]="lineChartOptions"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+  <button mat-button (click)="randomize()">Randomize</button>
+  <button mat-button (click)="hideOne()">Toggle 'Series B'</button>
+  <button mat-button (click)="pushOne()">Add Data</button>
+  <button mat-button (click)="changeColor()">Change Color</button>
+  <button mat-button (click)="changeLabel()">Change Label</button>
+</app-chart-host>
+

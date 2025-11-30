@@ -1,0 +1,268 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+      border-radius: 8px;
+      color: white;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-link {
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        color: #2563eb;
+      }
+
+      &.active {
+        color: #2563eb;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -24px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: #2563eb;
+        }
+      }
+    }
+
+    .nav-dropdown {
+      position: relative;
+
+      &:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: -20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        min-width: 200px;
+        padding: 8px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+
+        .dropdown-item {
+          display: block;
+          padding: 10px 16px;
+          color: #475569;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: #f1f5f9;
+            color: #2563eb;
+          }
+
+          &.active {
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .toggle-label {
+          font-size: 0.875rem;
+          color: #64748b;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.app-main {
+  flex: 1;
+  background: #f8fafc;
+}
+
+.app-footer {
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 2rem 0;
+  flex-shrink: 0;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-text {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .footer-link {
+      color: #2563eb;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .separator {
+      color: #cbd5e1;
+    }
+  }
+}
+
+// Dark theme styles
+.dark-theme {
+  .app-header {
+    background: #1e293b;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+
+    .logo-container .logo-text {
+      color: white;
+    }
+
+    .main-nav {
+      .nav-link {
+        color: #cbd5e1;
+
+        &:hover {
+          color: #60a5fa;
+        }
+
+        &.active {
+          color: #60a5fa;
+        }
+      }
+
+      .nav-dropdown .dropdown-menu {
+        background: #334155;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+        .dropdown-item {
+          color: #cbd5e1;
+
+          &:hover {
+            background: #475569;
+            color: #60a5fa;
+          }
+
+          &.active {
+            background: #1e3a8a;
+            color: #60a5fa;
+          }
+        }
+      }
+    }
+  }
+
+  .app-main {
+    background: #0f172a;
+  }
+
+  .app-footer {
+    background: #1e293b;
+    border-top-color: rgba(255, 255, 255, 0.1);
+
+    .footer-text {
+      color: #94a3b8;
+    }
+  }
+}

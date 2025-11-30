@@ -1,0 +1,30 @@
+<div class="chart-host-container">
+  <div class="chart-header">
+    <h2 class="chart-title">{{ heading }}</h2>
+  </div>
+
+  <section class="chart-display">
+    <ng-content></ng-content>
+  </section>
+
+  <mat-tab-group class="code-tabs">
+    <mat-tab label="Markup">
+      <div class="tab-content">
+        <mat-card>
+          <mat-card-content>
+            <pre><code [highlight]="html"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="TypeScript">
+      <div class="tab-content">
+        <mat-card>
+          <mat-card-content>
+            <pre><code [highlight]="ts"></code></pre>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

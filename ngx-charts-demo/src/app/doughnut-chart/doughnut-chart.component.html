@@ -1,0 +1,11 @@
+<app-chart-host chartType="doughnut">
+  <canvas
+    baseChart
+    #main
+    [data]="doughnutChartData"
+    [type]="doughnutChartType"
+    (chartClick)="chartClicked($event)"
+    (chartHover)="chartHovered($event)"
+  ></canvas>
+</app-chart-host>
+

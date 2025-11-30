@@ -1,0 +1,179 @@
+{
+  "name": "ng2-charts-demo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/ng2-charts-demo/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng2-charts-demo",
+        "index": "apps/ng2-charts-demo/src/index.html",
+        "browser": "apps/ng2-charts-demo/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/ng2-charts-demo/tsconfig.app.json",
+        "assets": [
+          "apps/ng2-charts-demo/src/favicon.ico",
+          "apps/ng2-charts-demo/src/assets"
+        ],
+        "styles": ["apps/ng2-charts-demo/src/styles.scss"],
+        "scripts": [],
+        "loader": {
+          ".html": "text",
+          ".ts": "text"
+        },
+        "server": "apps/ng2-charts-demo/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/ng2-charts-demo/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ng2-charts-demo:build:production"
+        },
+        "development": {
+          "buildTarget": "ng2-charts-demo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "ng2-charts-demo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ng2-charts-demo/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "spa": true,
+        "buildTarget": "ng2-charts-demo:build:development",
+        "staticFilePath": "dist/apps/ng2-charts-demo/browser"
+      }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/ng2-charts-demo"],
+      "options": {
+        "config": "apps/ng2-charts-demo/playwright.config.ts"
+      },
+      "configurations": {
+        "update-snapshots": {
+          "skipInstall": true,
+          "updateSnapshots": true
+        }
+      }
+    },
+
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/ng2-charts-demo/server",
+        "main": "apps/ng2-charts-demo/server.ts",
+        "tsConfig": "apps/ng2-charts-demo/tsconfig.server.json"
+      },
+      "configurations": {
+        "production": {
+          "buildOptimizer": true,
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/ng2-charts-demo/src/environments/environment.ts",
+              "with": "apps/ng2-charts-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "sourceMap": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "vendorChunk": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+
+    "serve-ssr": {
+      "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "ng2-charts-demo:build:development",
+          "serverTarget": "ng2-charts-demo:server:development"
+        },
+        "production": {
+          "browserTarget": "ng2-charts-demo:build:production",
+          "serverTarget": "ng2-charts-demo:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+
+    "prerender": {
+      "executor": "@angular-devkit/build-angular:prerender",
+      "options": {
+        "routes": ["/"]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "ng2-charts-demo:build:production",
+          "serverTarget": "ng2-charts-demo:server:production"
+        },
+        "development": {
+          "browserTarget": "ng2-charts-demo:build:development",
+          "serverTarget": "ng2-charts-demo:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  },
+  "implicitDependencies": ["ng2-charts"]
+}
