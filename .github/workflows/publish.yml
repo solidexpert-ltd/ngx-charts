@@ -27,13 +27,12 @@ jobs:
 
       - name: Update version with build number
         run: |
-          BASE_VERSION=$(node -p "require('./package.json').version")
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          ANGULAR_VERSION=$(node -p "require('./package.json').version.split('.')[0]")
           BUILD_NUMBER="${{ github.run_number }}"
-          NEW_VERSION="${BASE_VERSION}-build.${BUILD_NUMBER}"
+          NEW_VERSION="${ANGULAR_VERSION}.0.${BUILD_NUMBER}"
           npm version ${NEW_VERSION} --no-git-tag-version
-          echo "Updated version to: ${NEW_VERSION}"
-        env:
-          BUILD_NUMBER: ${{ github.run_number }}
+          echo "Updated version from ${CURRENT_VERSION} to: ${NEW_VERSION}"
 
       - name: Build library
         run: npm run build:lib
