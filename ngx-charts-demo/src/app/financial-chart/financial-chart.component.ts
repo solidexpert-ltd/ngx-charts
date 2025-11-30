@@ -5,7 +5,6 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 import { enUS } from 'date-fns/locale';
 import { add, parseISO } from 'date-fns';
 import { MatButton } from '@angular/material/button';
-import { MarkdownComponent } from 'ngx-markdown';
 import { ChartHostComponent } from '../chart-host/chart-host.component';
 import financialChartData from './financial-chart.data';
 
@@ -14,7 +13,6 @@ import financialChartData from './financial-chart.data';
   templateUrl: './financial-chart.component.html',
   standalone: true,
   imports: [
-    MarkdownComponent,
     MatButton,
     BaseChartDirective,
     ChartHostComponent,

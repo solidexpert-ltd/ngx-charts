@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ngx-charts';
 import { MatButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/divider';
 import { ChartHostComponent } from '../chart-host/chart-host.component';
 
 @Component({
@@ -10,7 +9,7 @@ import { ChartHostComponent } from '../chart-host/chart-host.component';
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
   standalone: true,
-  imports: [MatDivider, MatButton, BaseChartDirective, ChartHostComponent],
+  imports: [MatButton, BaseChartDirective, ChartHostComponent],
 })
 export class PieChartComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
