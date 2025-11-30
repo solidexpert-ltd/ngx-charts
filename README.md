@@ -13,7 +13,32 @@ Beautiful charts for Angular based on Chart.js
 
 ## Usage & Demo
 
-Live demo and examples available at: https://github.com/solidexpert-ltd/ngx-charts
+### Live Demo
+
+🌐 **Interactive Demo**: Visit our live demo page at [https://solidexpert-ltd.github.io/ngx-charts/](https://solidexpert-ltd.github.io/ngx-charts/)
+
+The demo showcases:
+- ✅ **All 10 Chart Types** with interactive examples
+- ✅ **Real-time Chart Interactions** - see click and hover events in action
+- ✅ **Light & Dark Theme Support** - toggle between themes
+- ✅ **Complete Code Examples** - view the source code for each chart
+- ✅ **Responsive Design** - see how charts adapt to different screen sizes
+
+### Running the Demo Locally
+
+To run the demo application locally:
+
+```bash
+npm start
+```
+
+The demo will be available at `http://localhost:4200`
+
+For production build:
+
+```bash
+npm run build:prod
+```
 
 ---
 
@@ -322,13 +347,19 @@ See [Chart.js colors documentation](https://www.chartjs.org/docs/latest/general/
 npm run build:lib
 ```
 
-### Running the Demo
+### Running the Demo Locally
+
+See the [Usage & Demo](#usage--demo) section above for information about the live demo page.
+
+To run the demo locally for development:
 
 ```bash
 npm start
 ```
 
 The demo application will be available at `http://localhost:4200`
+
+> **Note**: The demo is automatically deployed to GitHub Pages at [https://solidexpert-ltd.github.io/ngx-charts/](https://solidexpert-ltd.github.io/ngx-charts/) on every push to the `main` branch.
 
 ### Building for Production
 
@@ -338,7 +369,13 @@ npm run build:prod
 
 ## Publishing
 
-The library is automatically published to npm via GitHub Actions when code is pushed to the `main` branch.
+### NPM Package
+
+The library is automatically published to npm via GitHub Actions when code is pushed to the `main` branch. The package version follows the format: `{angular-version}.0.{build-number}` (e.g., `19.0.123`).
+
+### Demo Page
+
+The demo application is automatically deployed to GitHub Pages at [https://solidexpert-ltd.github.io/ngx-charts/](https://solidexpert-ltd.github.io/ngx-charts/) on every push to the `main` branch via GitHub Actions.
 
 ## Contributing
 
