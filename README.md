@@ -5,7 +5,7 @@ Beautiful charts for Angular based on Chart.js
 ## Features
 
 - 🎨 **10 Chart Types**: Line, Bar, Radar, Pie, Polar Area, Doughnut, Bubble, Scatter, Dynamic, and Financial charts
-- 📦 **Angular 19+ Support**: Built for modern Angular with standalone components
+- 📦 **Angular 21+ Support**: Built for modern Angular with standalone components
 - 🎯 **TypeScript**: Full TypeScript support with comprehensive type definitions
 - 🎨 **Theming**: Built-in support for light and dark themes
 - 📱 **Responsive**: Charts automatically adapt to container size
@@ -128,6 +128,8 @@ The required packages will be automatically installed, and your `app.config.ts` 
 
 | Angular Version | Library Version |
 |----------------|-----------------|
+| 21.x           | 21.x            |
+| 20.x           | 20.x            |
 | 19.x           | 19.x            |
 | 18.x           | 18.x            |
 | 17.x           | 17.x            |
