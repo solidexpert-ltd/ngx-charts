@@ -28,12 +28,10 @@ jobs:
 
       - name: Update version with build number
         run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          ANGULAR_VERSION=$(node -p "require('./package.json').version.split('.')[0]")
-          BUILD_NUMBER="${{ github.run_number }}"
-          NEW_VERSION="${ANGULAR_VERSION}.0.${BUILD_NUMBER}"
-          npm version ${NEW_VERSION} --no-git-tag-version
-          echo "Updated version from ${CURRENT_VERSION} to: ${NEW_VERSION}"
+          ANGULAR_MAJOR=$(node -p "const p=require('./package.json'); const raw=(p.devDependencies&&p.devDependencies['@angular/core'])||(p.peerDependencies&&p.peerDependencies['@angular/core']); if(!raw) throw new Error('missing @angular/core'); String(raw).replace(/^[^0-9]*/,'').split('.')[0]")
+          NEW_VERSION="${ANGULAR_MAJOR}.0.${{ github.run_number }}"
+          export NEW_VERSION
+          node -e "const fs=require('fs'); const p=require('./package.json'); p.version=process.env.NEW_VERSION; fs.writeFileSync('package.json', JSON.stringify(p,null,2)+'\n'); console.log('Publish version: '+p.version)"
 
       - name: Build library
         run: npm run build:lib
