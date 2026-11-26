@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 
@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
   standalone: true,
   imports: [RouterLink, MatIcon],
   templateUrl: './landing.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './landing.component.css',
 })
 export class LandingComponent {}

@@ -7,6 +7,7 @@ import {
   HttpClient,
   provideHttpClient,
   withInterceptorsFromDi,
+  withXhr
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideCharts, withDefaultRegisterables } from 'ngx-charts';
@@ -31,7 +32,7 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { DynamicChartComponent } from './dynamic-chart/dynamic-chart.component';
 import { FinancialChartComponent } from './financial-chart/financial-chart.component';
 import { LandingComponent } from './landing/landing.component';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withNoIncrementalHydration } from '@angular/platform-browser';
 
 const routes: Route[] = [
   {
@@ -141,9 +142,9 @@ export const appConfig: ApplicationConfig = {
       },
     ),
     provideHighlightjs(),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     provideAnimations(),
     provideRouter(routes),
-    provideClientHydration(),
+    provideClientHydration(withNoIncrementalHydration()),
   ],
 };
